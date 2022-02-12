@@ -3,21 +3,21 @@ services:
   Illidan:
     image: mysql:latest
     networks:
-      Azeroth
+      - Azeroth
     ports:
-      "3306":"3306"
-    enviromment:
+      - "3306":"3306"
+    environment:
       MYSQL_ROOT_PASSWORD: secret)
   Gamon:
     image: phpmyadmin/phpmyadmin:5.0.0
     networks:
-      Azeroth
+      - Azeroth
     ports:
-      "8080":"80"
-    enviromment:
+      - "8080":"80"
+    environment:
       PMA_HOST: Illidan
     depends_on:
-      Illidan
+      - Illidan
 
 networks:
-  Azeroth
+  Azeroth:
