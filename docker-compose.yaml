@@ -5,7 +5,7 @@ services:
     networks:
       - Azeroth
     ports:
-      - "3306":"3306"
+      - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: secret)
   Gamon:
@@ -13,7 +13,7 @@ services:
     networks:
       - Azeroth
     ports:
-      - "8080":"80"
+      - "8080:80"
     environment:
       PMA_HOST: Illidan
     depends_on:
