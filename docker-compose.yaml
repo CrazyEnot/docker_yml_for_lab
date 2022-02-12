@@ -1,0 +1,23 @@
+version: "3.7"
+services:
+  Illidan:
+    image: mysql:latest
+    networks:
+      Azeroth
+    ports:
+      "3306":"3306"
+    enviromment:
+      MYSQL_ROOT_PASSWORD: secret)
+  Gamon:
+    image: phpmyadmin/phpmyadmin:5.0.0
+    networks:
+      Azeroth
+    ports:
+      "8080":"80"
+    enviromment:
+      PMA_HOST: Illidan
+    depends_on:
+      Illidan
+
+networks:
+  Azeroth
